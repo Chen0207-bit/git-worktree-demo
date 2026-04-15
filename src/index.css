@@ -79,9 +79,38 @@
   --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
 
+  /* Navbar */
+  --color-navbar-bg: rgba(10, 14, 26, 0.8);
+
   /* Layout */
   --container-max: 1200px;
   --navbar-height: 72px;
+}
+
+/* --- Light Theme Overrides --- */
+[data-theme="light"] {
+  --color-bg: #f8fafc;
+  --color-bg-elevated: #ffffff;
+  --color-bg-card: #ffffff;
+  --color-bg-card-hover: #f1f5f9;
+  --color-surface: #e2e8f0;
+
+  --color-primary-glow: rgba(99, 102, 241, 0.1);
+
+  --color-text: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
+  --color-text-inverse: #f8fafc;
+
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-hover: rgba(0, 0, 0, 0.15);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.08);
+
+  --color-navbar-bg: rgba(248, 250, 252, 0.85);
 }
 
 /* --- Reset & Base --- */
@@ -256,7 +285,7 @@ button {
   right: 0;
   height: var(--navbar-height);
   z-index: 1000;
-  background: rgba(10, 14, 26, 0.8);
+  background: var(--color-navbar-bg);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--color-border);
 }
@@ -1241,6 +1270,60 @@ button {
 @media (max-width: 480px) {
   .footer__columns {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   LIGHT THEME — COMPONENT OVERRIDES
+   ======================================== */
+
+[data-theme="light"] .hero__title {
+  background: linear-gradient(135deg, #1e1b4b 0%, #6366f1 50%, #0891b2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+[data-theme="light"] .section-header__badge,
+[data-theme="light"] .use-cases__role-badge {
+  color: var(--color-primary-dark);
+}
+
+[data-theme="light"] .hero__stat-value {
+  color: var(--color-primary);
+}
+
+/* ========================================
+   THEME TOGGLE
+   ======================================== */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  background: var(--color-primary-glow);
+  color: var(--color-primary-light);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .theme-toggle {
+    width: 100%;
+    height: 44px;
+    border-radius: var(--radius-lg);
+    margin-top: var(--space-4);
   }
 }
 
