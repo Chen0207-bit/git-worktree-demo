@@ -28,3 +28,10 @@ npm-debug.log*
 
 # Agent reference spec
 git-worktree-spec.md
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Python cache（for agent scripts）
+__pycache__/
+*.pyc
